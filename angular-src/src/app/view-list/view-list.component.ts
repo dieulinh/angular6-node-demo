@@ -28,4 +28,7 @@ export class ViewListComponent implements OnInit {
       response => this.lists.filter(lists => lists !== list)
     )
   }
+  public onAddList(newList) {
+    this.lists = this.lists.concat(newList);
+  }
 }

@@ -19,6 +19,16 @@ export class ListService {
     return this.http.delete(URI, {headers})
       .pipe(map(res => res));
   }
+
+  public addList(list: List) {
+    let URI = `${this.serverApi}/bucketlist/`;
+    let headers = new HttpHeaders();
+    let body = {title: list.title, category: list.category, description: list.description};
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(URI, body, { headers: headers})
+      .pipe(map(res => res));
+  }
+
   public getAllLists(): Observable<List[]> {
     let URI = `${this.serverApi}/bucketlist/`;
 
